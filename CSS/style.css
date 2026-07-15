@@ -67,10 +67,12 @@ nav ul li a:hover {
 
 .brand h1 {
     margin: 0;
-    white-space: nowrap; /* keep school name on one line */
-    font-size: 46px;
-    line-height: 1;
+    font-size: clamp(22px, 4vw, 46px);
+    line-height: 1.1;
     color: #ffd200;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
 }
 
 nav ul {
@@ -543,4 +545,132 @@ header h1 {
 header h2 {
   color: #fdfdfd;                          /* light text for subtitle */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Mobile responsiveness */
+body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 95%;
+    }
+
+    .brand {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .brand .logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .brand h1 {
+        font-size: clamp(22px, 5.2vw, 30px);
+        white-space: normal;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    main {
+        padding: 24px 18px;
+        margin: 20px auto;
+    }
+
+    .hero {
+        padding: 20px 15px 40px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero .btn {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .brand .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .brand h1 {
+        font-size: 24px;
+    }
+
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .hero .btn {
+        width: 100%;
+        max-width: 280px;
+        box-sizing: border-box;
+        margin-top: 18px;
+    }
+
+    main {
+        padding: 18px 14px;
+        border-radius: 14px;
+    }
+
+    .intro-section h2,
+    .highlights-section h3,
+    .profile-mission h2 {
+        font-size: 22px;
+    }
+
+    .intro-section p,
+    .highlights-section li,
+    .card p,
+    .profile-mission p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .profile-row,
+    .feature-cards,
+    .staff-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .profile-image img {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        max-height: 240px;
+    }
+
+    .staff-card .staff-photo {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+    }
 }
